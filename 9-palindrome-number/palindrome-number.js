@@ -3,7 +3,8 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-
+ 
+   // Using number extarction
     if (x < 0){
         return false;
     }
