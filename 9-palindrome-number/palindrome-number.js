@@ -4,21 +4,22 @@
  */
 var isPalindrome = function(x) {
 
-    let xString = x.toString();
-
-    // two pointers
-    let i = 0; 
-    let j = xString.length - 1;
-    while(i <= j){
-        if (xString[i] !== xString[j]){
-            return false;
-        }
-        else {
-            i++;
-            j--;
-        }
+    if (x < 0){
+        return false;
     }
 
-    return true;
+  let n = x;
+  let rNum = 0;
+
+  while (n != 0){
+    let lNum = n%10;
+    rNum = (rNum*10) + lNum;
+    n = Math.floor(n/10)
+  }
+
+    if (x === rNum){
+        return true;
+    }
+    return false;
 
 };
