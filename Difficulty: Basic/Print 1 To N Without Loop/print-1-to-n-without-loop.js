@@ -64,8 +64,9 @@ function main() {
 class Solution{
     printNos(N){
         
-        let i = 1;
         let allNum = [];
+        /*
+        let i = 1;
         function printNum(){
             if (i > N) return;
             allNum.push(i);
@@ -73,7 +74,17 @@ class Solution{
             printNum();
         }
         
-        printNum()
+        printNum()*/
+        
+        //  Using Backtracking
+        
+        function addToAllNum (i){
+            if (i <= 0) return;
+            addToAllNum(i - 1);
+            allNum.push(i);
+        }
+        
+        addToAllNum(N);
         
         console.log(...allNum)
         
