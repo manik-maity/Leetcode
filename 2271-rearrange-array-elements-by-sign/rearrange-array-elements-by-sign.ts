@@ -1,22 +1,16 @@
-function rearrangeArray(nums: number[]): number[] {
-    let prositiveArr : number[] = [], negativeArr : number[] = [];
-    for (let i = 0; i < nums.length; i++){
-      if (nums[i] < 0){
-        negativeArr.push(nums[i]);
-      }
-      else {
-        prositiveArr.push(nums[i]);
-      }
+function rearrangeArray(nums: number[]) {
+  const resultArr = Array(nums.length);
+  let nPos = 1, pPos = 0;
+  for (let i = 0; i < nums.length; i++){
+    if (nums[i] < 0){
+      resultArr[nPos] = nums[i];
+      nPos+= 2;
     }
+    else {
+      resultArr[pPos] = nums[i];
+      pPos += 2;
+    }
+  }
 
-    let i = 0;
-    let j = 0;
-    while(j < nums.length - 1){
-      nums[j] = prositiveArr[i]
-      nums[j + 1] = negativeArr[i]
-      i++;
-      j+=2;
-    }
-   
-    return nums;
-};
+  return resultArr;
+}
