@@ -1,15 +1,16 @@
-function longestConsecutive(nums: number[]): number {
+function longestConsecutive(nums : number[]) : number {
     if (nums.length == 0) return 0;
-    const unique = new Set(nums);
-    const sortedNums = [...unique].sort((a, b) => a- b);
-    let maxCon = 1;
+    const sortedNums = nums.sort((a, b) => a - b);
+    let maxLen = 1;
     let temp = 1;
-    let i = 0;
-    let j = 1;
-    while(i < sortedNums.length && j < sortedNums.length){
+    let i = 0, j = 1;
+    while(i < nums.length && j < nums.length){
         if (sortedNums[i] + 1 == sortedNums[j]){
             temp ++;
-            maxCon = Math.max(temp, maxCon);
+            i ++;
+            j++;
+        }
+        else if (sortedNums[j] === sortedNums[i]){
             i++;
             j++;
         }
@@ -18,7 +19,9 @@ function longestConsecutive(nums: number[]): number {
             j = i+ 1;
             temp = 1;
         }
+
+        maxLen = Math.max(temp, maxLen);
     }
 
-    return maxCon;
-};
+    return maxLen;
+}
