@@ -26,13 +26,12 @@ function majorityElement(nums: number[]): number[] {
         if (nums[i] == ele1){
             rCount1++;
         }
-    }
-
-     for (let i = 0; i < nums.length; i++){
-        if (nums[i] == ele2){
+        else if (nums[i] == ele2){
             rCount2++;
         }
     }
+
+   
     if (rCount1 > (nums.length / 3)) result.push(ele1);
     if (rCount2 > (nums.length / 3)) result.push(ele2);
 
